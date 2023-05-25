@@ -2,12 +2,12 @@ import csv
 import pandas as pd
 
 # Set the name of the target file saved to the Desktop
-filename = input('Enter the name of the text file saved in the "Inputs" folder. '
+filename = input('Enter the name of the text file saved on your desktop. '
                  'Do not include the file path or the file type:')
-new_filename = filename + "_UPDATED"
 
 # Ingest the file
-with open(f"C:\\Users\\daniel.s.ross\\OneDrive - Accenture Federal Services\\Python Scripts\\Inputs\\{filename}.txt", "r", encoding="utf8") as f:
+new_filename = filename + "_UPDATED"
+with open(f"C:\\Users\\daniel.s.ross\\Desktop\\{filename}.txt", "r", encoding="utf8") as f:
     content = f.read()
 
 # Execute some high-level replacements to allow for cleaner data
@@ -38,6 +38,6 @@ df = df.set_index('INDEX')
 df.columns = ["col_"+str(i) if a is None else a for i, a in enumerate(df.columns)]
 
 # Save the dataframe as a CSV
-df.to_csv(f"C:\\Users\\daniel.s.ross\\OneDrive - Accenture Federal Services\\Python Scripts\\Outputs\\{new_filename}.csv", index=False)
+df.to_csv(f"C:\\Users\\daniel.s.ross\\Desktop\\{new_filename}.csv", index=False)
 
 print('Complete')
